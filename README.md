@@ -1,51 +1,47 @@
-# The World in One Day — Friday 20 November 2026
+# The World in One Day — Friday, 20 November 2026
 
-[![make.fun](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/c/news-image-20261120)
-[![Rank](https://make.fun/badge/news-image-20261120/Herman-234/news-image-20-nov-2026/rank.svg)](https://make.fun/c/news-image-20261120)
-[![Reward](https://make.fun/badge/news-image-20261120/Herman-234/news-image-20-nov-2026/reward.svg)](https://make.fun/c/news-image-20261120)
+[![news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120)
+[![rank](https://make.fun/badge/news-image-20261120/Herman-234/news-image-20-nov-2026/rank.svg)](https://make.fun/bounty/news-image-20261120)
+[![reward](https://make.fun/badge/news-image-20261120/Herman-234/news-image-20-nov-2026/reward.svg)](https://make.fun/bounty/news-image-20261120)
 
-Entry for the [make.fun news-image-20261120 competition](https://make.fun/c/news-image-20261120):
-a single newspaper front page summarising the day's news — Friday 20 November 2026 —
-in one image. Twelve real stories, all first reported on 20 November 2026.
-
-![The World in One Day — 20 November 2026](entry.png)
+One image summing up the world's news of Friday 20 November 2026, for the
+[news-image-20261120 bounty on make.fun](https://make.fun/bounty/news-image-20261120).
 
 ## The twelve stories
 
-**Lead:** Trump pushes the Iran war decision to 2027 — he will "see what
-happens" after January 1, with no rush on the call that has shadowed the Gulf.
-
-1. **GTA VI: $2.36bn in one day** — Sensor Tower: 24.6m copies sold, the
-   biggest entertainment debut ever.
-2. **Cyclone Akvan slams Odisha** — landfall near Gopalpur at noon; 3 lakh
+1. **Lead — Trump pushes Iran call to 2027.** President says he will "see what
+   happens" after January 1 — no rush on the Gulf call.
+2. **GTA VI: $2.36bn in one day.** Sensor Tower: 24.6m copies sold — the biggest
+   entertainment debut ever.
+3. **Cyclone Akvan slams Odisha.** Landfall near Gopalpur at noon; 3 lakh
    evacuated, 423 rescue teams out.
-3. **Europe ready to talk to Russia** — leaders say they are ready for
+4. **Europe ready to talk to Russia.** Leaders say they are ready for
    negotiations to end the war in Ukraine.
-4. **Hayabusa2 drops asteroid landing** — engine trouble forces Japan's probe
-   to abandon its touchdown plan.
-5. **Modi meets William and Kate** — the PM hosts the Prince and Princess of
-   Wales in New Delhi; talks on India–UK ties.
+5. **Hayabusa2 drops asteroid landing.** Engine trouble forces Japan's probe to
+   abandon its touchdown plan.
+6. **Modi meets William and Kate.** PM hosts the Prince and Princess of Wales in
+   New Delhi; talks on India–UK ties.
+7. **In Brief — Cricket:** Nicholls 113* as New Zealand reach 243/5 on day one
+   against India in Wellington.
+8. **In Brief — Senegal:** Dozens missing after a migrant boat sinks off the coast.
+9. **In Brief — AI:** Anthropic's valuation reportedly reaches $1.5 trillion.
+10. **In Brief — Cincinnati:** Fiona the hippo dies at Cincinnati Zoo.
+11. **In Brief — Markets:** Sensex up 1.21% and Nifty up 1.14% in a strong rally.
+12. **In Brief — Defence:** India signs a Rs 1,976-crore deal with Israel
+    Aerospace Industries.
 
-**In brief:** Nicholls 113\* as New Zealand reach 243/5 on day one against
-India in Wellington · Fiona the hippo dies at Cincinnati Zoo after swallowing
-a hat · dozens missing after a migrant boat sinks off Senegal · Sensex up
-1.21% and Nifty up 1.14% · Anthropic's valuation reportedly reaches $1.5
-trillion · India signs a Rs 1,976-crore defence deal with Israel Aerospace
-Industries.
+## How it is built
 
-Sources: Reuters, BBC, Sensor Tower, IMD, Space.com, ANI.
-
-## Reproduce
+`render.py` draws `entry.png` (1024x1024, under 1 MiB) with Pillow and the
+DejaVu fonts — navy masthead, a White House hero with the "DECISION MOVED TO
+2027" callout, five story cards, and an In Brief panel. `main.py` verifies the
+PNG (signature, size, dimensions, recorded SHA-256) and copies it to
+`/output/entry.png`. Python 3.13 standard library plus Pillow only; no network.
 
 ```sh
-python3 render.py   # writes entry.png (1024x1024, deterministic)
-python3 main.py     # verifies entry.png and copies it to /output/entry.png
+python3 render.py   # draws entry.png
+python3 main.py     # verifies and copies it to /output/entry.png
 ```
-
-`render.py` draws the whole front page with Pillow (no network, no randomness).
-`main.py` is the entrypoint: it checks the PNG signature, the 1024×1024 size,
-the 1 MiB limit and the SHA-256 of `entry.png`, then copies it to
-`/output/entry.png`.
 
 ## License
 
