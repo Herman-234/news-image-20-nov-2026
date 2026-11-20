@@ -100,10 +100,10 @@ def draw_white_house(draw, x, y, w, h):
                    outline=(180, 180, 172), width=2)
     draw.rectangle([bx + bw, by + 34, bx + bw + 22, by + bh],
                    fill=(244, 244, 238), outline=(180, 180, 172), width=2)
-    # windows
+    # windows (inside the main block, not hanging below it onto the lawn)
     for i in range(5):
         wx = bx + 26 + i * ((bw - 52) // 4)
-        draw.rectangle([wx, by + 96, wx + 22, by + 132],
+        draw.rectangle([wx, by + 24, wx + 22, by + 60],
                        fill=(52, 74, 104), outline=(200, 200, 192), width=1)
     # portico: columns + pediment
     cx, cy, cw = bx + bw // 2, by - 6, 150
